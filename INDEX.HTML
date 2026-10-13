@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masterplan Villa Olímpica | La Porcada 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #c5a059;
+            --dark: #0a0a0a;
+            --deep-grey: #151515;
+            --white: #ffffff;
+            --steel: #717d80; /* Color acero galvanizado */
+            --nordic-light: #f5f5f5;
+        }
+
+        body, html { margin: 0; padding: 0; height: 100%; font-family: 'Montserrat', sans-serif; background-color: var(--dark); overflow-x: hidden; scroll-behavior: smooth; color: var(--white); }
+
+        /* Header */
+        .header {
+            position: fixed; top: 0; left: 0; width: 100%;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 40px; background: rgba(10, 10, 10, 0.9); z-index: 1000;
+            backdrop-filter: blur(10px); box-sizing: border-box;
+        }
+        .logo-container { display: flex; align-items: center; gap: 20px; }
+        .logo { height: 50px; object-fit: contain; }
+        .translate-btn {
+            background: var(--gold); color: var(--dark); border: none;
+            padding: 10px 20px; font-weight: 600; cursor: pointer;
+            border-radius: 2px; text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        /* Sections */
+        section {
+            min-height: 100vh; width: 100vw; display: flex; align-items: center;
+            justify-content: center; position: relative; overflow: hidden;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.1);
+            padding: 120px 0 60px 0; box-sizing: border-box;
+        }
+        .slide-container {
+            display: flex; width: 90%; max-width: 1400px; align-items: center;
+            gap: 60px; z-index: 2; margin: 0 auto;
+        }
+        .text-box { flex: 1; }
+        .image-box { 
+            flex: 1.2; height: 70vh; background-size: cover; background-position: center; 
+            position: relative; border: 1px solid var(--steel); /* Estilo sobrio */
+        }
+        .image-box::after {
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, transparent 70%, rgba(0,0,0,0.4));
+        }
+
+        /* Typography */
+        h1 { font-family: 'Playfair Display', serif; font-size: 4.5rem; margin: 0; color: var(--gold); line-height: 1; }
+        h2 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 20px; color: var(--gold); border-bottom: 1px solid var(--steel); padding-bottom: 10px; display: inline-block; }
+        p { line-height: 1.8; font-weight: 300; font-size: 1.1rem; color: #d0d0d0; margin-bottom: 20px; }
+
+        /* UI Elements */
+        .badge { display: inline-block; padding: 8px 16px; border: 1px solid var(--gold); color: var(--gold); font-size: 0.75rem; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 25px; }
+        .data-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 30px; }
+        .data-card { background: rgba(255,255,255,0.02); padding: 20px; border-left: 3px solid var(--steel); }
+        .data-card b { display: block; font-size: 1.4rem; color: var(--gold); margin-bottom: 5px; font-weight: 600; }
+        .data-card span { font-size: 0.9rem; color: #a0a0a0; }
+        
+        .feature-list { list-style: none; padding: 0; }
+        .feature-list li { margin-bottom: 15px; display: flex; align-items: flex-start; gap: 15px; }
+        .feature-list li::before { content: "—"; color: var(--gold); font-size: 1.2rem; font-weight: bold; }
+
+        /* Cost Table */
+        .cost-table { width: 100%; border-collapse: collapse; margin-top: 30px; font-size: 0.95rem; }
+        .cost-table th { text-align: left; color: var(--gold); border-bottom: 2px solid var(--gold); padding: 15px; font-weight: 600; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
+        .cost-table td { padding: 15px; border-bottom: 1px solid #333; color: #e0e0e0; }
+        .cost-table tr:last-child td { border-bottom: none; border-top: 2px solid var(--gold); font-weight: 600; color: var(--white); font-size: 1.2rem; }
+        .cost-table .price { text-align: right; font-family: 'Playfair Display', serif; }
+
+        /* Footer */
+        .footer { background-color: var(--deep-grey); color: #666; text-align: center; padding: 30px; font-size: 0.8rem; letter-spacing: 2px; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="images/logo.png" alt="Logo" class="logo">
+            <img src="images/ecoresort.png" alt="Ecoresort" class="logo">
+        </div>
+        <button class="translate-btn" id="translateBtn">EN</button>
+    </header>
+
+    <!-- INTRODUCCIÓN MASTERPLAN -->
+    <section style="background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.8)), url('images/foto1.jpg') center/cover;">
+        <div style="text-align: center; max-width: 1000px; padding: 0 20px;">
+            <div class="badge" data-es="Masterplan Operativo Continental" data-en="Continental Operative Masterplan">Masterplan Operativo Continental</div>
+            <h1 data-es="Villa Olímpica Staff" data-en="Olympic Staff Village">Villa Olímpica Staff</h1>
+            <p style="font-size: 1.2rem; letter-spacing: 4px; margin-top: 20px; color: var(--white); opacity: 0.9;" data-es="DISEÑO NÓRDICO FUNCIONAL | INGENIERÍA CLT Y ACERO | NORMA RICHTER 9" data-en="FUNCTIONAL NORDIC DESIGN | CLT & STEEL ENGINEERING | RICHTER 9 STANDARD">DISEÑO NÓRDICO FUNCIONAL | INGENIERÍA CLT Y ACERO | NORMA RICHTER 9</p>
+            <p style="max-width: 700px; margin: 40px auto; opacity: 0.8;" data-es="Complejo de 80,000 m² bajo techo para 2,450 empleados. Estilo sobrio, sin ornamentación. Optimización de costes mediante prefabricación modular y finishes industriales de alta durabilidad." data-en="80,000 m² complex under roof for 2,450 employees. Sober style, no ornamentation. Cost optimization through modular prefabrication and high-durability industrial finishes.">Complejo de 80,000 m² bajo techo para 2,450 empleados. Estilo sobrio, sin ornamentación. Optimización de costes mediante prefabricación modular y finishes industriales de alta durabilidad.</p>
+        </div>
+    </section>
+
+    <!-- MATERIALES E INGENIERÍA SÍSMICA -->
+    <section style="background-color: var(--deep-grey);">
+        <div class="slide-container">
+            <div class="text-box">
+                <div class="badge" data-es="Ingeniería y Materiales" data-en="Engineering and Materials">Ingeniería y Materiales</div>
+                <h2 data-es="Soporte Richter 9" data-en="Richter 9 Support">Soporte Richter 9</h2>
+                <p data-es="Cumplimiento estricto de la legislación panameña. La estructuración combina flexibilidad y resistencia pura, eliminando refinamientos innecesarios para abaratar costes sin perder seguridad." data-en="Strict compliance with Panamanian legislation. The structure combines flexibility and pure resistance, eliminating unnecessary refinements to lower costs without losing safety.">Cumplimiento estricto de la legislación panameña. La estructuración combina flexibilidad y resistencia pura, eliminando refinamientos innecesarios para abaratar costes sin perder seguridad.</p>
+                <ul class="feature-list">
+                    <li><b data-es="Estructura Mixta CLT + Acero Galvanizado:" data-en="Mixed Structure CLT + Galvanized Steel:">Estructura Mixta CLT + Acero Galvanizado:</b> <span data-es="El CLT aporta aislamiento térmico y ligereza; el acero galvanizado en forjados y unionses aporta rigidez y durabilidad anti-corrosiva en el clima tropical." data-en="CLT provides thermal insulation and lightness; galvanized steel in slabs and connections provides rigidity and anti-corrosive durability in tropical climate.">El CLT aporta aislamiento térmico y ligereza; el acero galvanizado en forjados y uniones aporta rigidez y durabilidad anti-corrosiva en el clima tropical.</span></li>
+                    <li><b data-es="Bases Aisladas y Micro-pilotes:" data-en="Isolated Bases and Micro-piles:">Bases Aisladas y Micro-pilotes:</b> <span data-es="Cimentación profunda que disipa la energía de un sismo de Escala 9 Richter, protegiendo el módulo habitacional." data-en="Deep foundation that dissipates energy from a Magnitude 9 earthquake, protecting the housing module.">Cimentación profunda que disipa la energía de un sismo de Escala 9 Richter, protegiendo el módulo habitacional.</span></li>
+                    <li><b data-es="Suelos Epoxy Industrial:" data-en="Industrial Epoxy Floors:">Suelos Epoxy Industrial:</b> <span data-es="Altísima resistencia al tránsito pesado, bajo mantenimiento, limpieza rápida y cero juntas. Solución continua y funcional." data-en="High resistance to heavy traffic, low maintenance, fast cleaning and zero joints. Continuous and functional solution.">Altísima resistencia al tránsito pesado, bajo mantenimiento, limpieza rápida y cero juntas. Solución continua y funcional.</span></li>
+                </ul>
+            </div>
+            <div class="image-box" style="background-image: url('images/foto10.png');"></div>
+        </div>
+    </section>
+
+    <!-- DISEÑO NÓRDICO SOBRIO -->
+    <section>
+        <div class="slide-container">
+            <div class="image-box" style="background-image: url('images/foto5.png'); box-shadow: -20px 20px 0px var(--steel);"></div>
+            <div class="text-box">
+                <div class="badge" data-es="Interiorismo Funcional" data-en="Functional Interior Design">Interiorismo Funcional</div>
+                <h2 data-es="Estilo Nórdico Sobrio" data-en="Sober Nordic Style">Estilo Nórdico Sobrio</h2>
+                <p data-es="Espacios diáfanos, maximizando luz natural. Sin ornamentaciones. El mobiliario y acabados siguen la línea IKEA: modular, funcional, de bajo coste y alta utilidad." data-en="Open spaces, maximizing natural light. No ornamentations. Furniture and finishes follow the IKEA line: modular, functional, low cost and high utility.">Espacios diáfanos, maximizando luz natural. Sin ornamentaciones. El mobiliario y acabados siguen la línea IKEA: modular, funcional, de bajo coste y alta utilidad.</p>
+                <div class="data-grid">
+                    <div class="data-card"><b>750 Unidades</b><span data-es="Apts de 1, 2 y 3 dorms." data-en="1, 2 and 3 bed apts">Apts de 1, 2 y 3 dorms.</span></div>
+                    <div class="data-card"><b>2,450 PAX</b><span data-es="Capacidad Total del Resort" data-en="Total Resort Capacity">Capacidad Total del Resort</span></div>
+                    <div class="data-card"><b>+80,000 m²</b><span data-es="Superficie Construida" data-en="Built Surface">Superficie Construida</span></div>
+                    <div class="data-card"><b>Paleta Neutra</b><span data-es="Blancos, maderas claras y gris acero" data-en="Whites, light woods and steel grey">Blancos, maderas claras y gris acero</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- URBANISMO Y EQUIPAMIENTOS -->
+    <section style="background-color: var(--deep-grey);">
+        <div class="slide-container">
+            <div class="text-box">
+                <div class="badge" data-es="Equipamientos y Autonomía" data-en="Amenities and Autonomy">Equipamientos y Autonomía</div>
+                <h2 data-es="Desarrollo de la Finca (300K m²)" data-en="Plot Development (300K m²)">Desarrollo de la Finca (300K m²)</h2>
+                <p data-es="Parcelación urbanística estratégica para dar servicio al staff. Conexión vial directa con la carretera regional e implementación de redes de suministros básicos propios." data-en="Strategic urban parceling to serve the staff. Direct road connection to the regional highway and implementation of own basic supply networks.">Parcelación urbanística estratégica para dar servicio al staff. Conexión vial directa con la carretera regional e implementación de redes de suministros básicos propios.</p>
+                <ul class="feature-list">
+                    <li><b data-es="Hipermercado a Precio de Coste:" data-en="Cost-Price Hypermarket:">Hipermercado a Precio de Coste:</b> <span data-es="Estilo Carrefour. Venta del sobrante de comida del día anterior de la isla (Cocina 5 Estrellas y Chefs Michelin) al personal de la villa." data-en="Carrefour style. Sale of surplus food from the previous day on the island (5-Star Kitchen and Michelin Chefs) to villa staff.">Estilo Carrefour. Venta del sobrante de comida del día anterior de la isla (Cocina 5 Estrellas y Chefs Michelin) al personal de la villa.</span></li>
+                    <li><b data-es="Bienestar y Familia:" data-en="Wellness and Family:">Bienestar y Familia:</b> <span data-es="Gimnasios de alto rendimiento y escuelas primarias en el continente para los hijos de los trabajadores." data-en="High-performance gyms and primary schools on the mainland for workers' children.">Gimnasios de alto rendimiento y escuelas primarias en el continente para los hijos de los trabajadores.</span></li>
+                    <li><b data-es="Restaurante-Cafetería Playa y Marina A:" data-en="Beach Restaurant-Cafe & Marina A:">Restaurante-Cafetería Playa y Marina A:</b> <span data-es="Zona de descanso y amarre lanzadera que enlaza el continente con la isla en menos de 10 minutos." data-en="Rest area and shuttle dock linking the mainland to the island in less than 10 minutes.">Zona de descanso y amarre lanzadera que enlaza el continente con la isla en menos de 10 minutos.</span></li>
+                </ul>
+            </div>
+            <div class="image-box" style="background-image: url('images/bot_avatar.png'); box-shadow: 20px 20px 0px var(--steel);"></div>
+        </div>
+    </section>
+
+    <!-- DESGLOSE DE COSTES MASTERPLAN -->
+    <section style="background: linear-gradient(rgba(0,0,0,0.95), rgba(0,0,0,0.9)), url('images/bot_avatar.png') center/cover; background-attachment: fixed;">
+        <div class="slide-container" style="flex-direction: column; align-items: center; width: 90%; max-width: 1000px;">
+            <div class="text-box" style="width: 100%;">
+                <div class="badge" data-es="Ingeniería de Costes" data-en="Cost Engineering">Ingeniería de Costes</div>
+                <h2 data-es="CAPEX Masterplan" data-en="CAPEX Masterplan">CAPEX Masterplan</h2>
+                <p data-es="Estructura de inversión en obra civil y construcción para la Ciudad Operativa Continental, optimizada mediante sistemas constructivos CLT y Steel-Frame." data-en="Investment structure in civil works and construction for the Continental Operative City, optimized through CLT and Steel-Frame construction systems.">Estructura de inversión en obra civil y construcción para la Ciudad Operativa Continental, optimizada mediante sistemas constructivos CLT y Steel-Frame.</p>
+                
+                <table class="cost-table">
+                    <tr>
+                        <th data-es="Partida" data-en="Item">Partida</th>
+                        <th data-es="Descripción" data-en="Description">Descripción</th>
+                        <th class="price">Coste (USD)</th>
+                    </tr>
+                    <tr>
+                        <td data-es="Adquisición Finca" data-en="Plot Acquisition">Adquisición Finca</td>
+                        <td data-es="Terreno 300,000 m² en Nodo Pan de Azúcar" data-en="Land 300,000 m² at Pan de Azúcar Node">Terreno 300,000 m² en Nodo Pan de Azúcar</td>
+                        <td class="price">$5,000,000</td>
+                    </tr>
+                    <tr>
+                        <td data-es="Urbanización" data-en="Urbanization">Urbanización</td>
+                        <td data-es="Movimiento tierras, viales, conexión carretera" data-en="Earthworks, roads, highway connection">Movimiento tierras, viales, conexión carretera</td>
+                        <td class="price">$1,500,000</td>
+                    </tr>
+                    <tr>
+                        <td data-es="Suministros Básicos" data-en="Basic Utilities">Suministros Básicos</td>
+                        <td data-es="Subestación eléctrica, pozo agua, fibra óptica" data-en="Electrical substation, water well, fiber optics">Subestación eléctrica, pozo agua, fibra óptica</td>
+                        <td class="price">$2,500,000</td>
+                    </tr>
+                    <tr>
+                        <td data-es="Cimentación Sísmica" data-en="Seismic Foundation">Cimentación Sísmica</td>
+                        <td data-es="Micro-pilotes Richter 9 y bases aisladas" data-en="Richter 9 micro-piles and isolated bases">Micro-pilotes Richter 9 y bases aisladas</td>
+                        <td class="price">$3,200,000</td>
+                    </tr>
+                    <tr>
+                        <td data-es="Viviendas (750 Unid.)" data-en="Housing (750 Units)">Viviendas (750 Unid.)</td>
+                        <td data-es="Estructura CLT + Acero Galv. (80,000 m²)" data-en="CLT Structure + Galv. Steel (80,000 m²)">Estructura CLT + Acero Galv. (80,000 m²)</td>
+                        <td class="price">$56,000,000</td>
+                    </tr>
+                    <tr>
+                        <td data-es="Acabados e Interior" data-en="Finishes & Interior">Acabados e Interior</td>
+                        <td data-es="Suelos Epoxy, Decoración Nórdica IKEA" data-en="Epoxy Floors, Nordic IKEA Decor">Suelos Epoxy, Decoración Nórdica IKEA</td>
+                        <td class="price">$8,400,000</td>
+                    </tr>
+                    <tr>
+                        <td data-es="Equipamientos" data-en="Amenities">Equipamientos</td>
+                        <td data-es="Hipermercado, Escuelas, Gym, Marina A" data-en="Hypermarket, Schools, Gym, Marina A">Hipermercado, Escuelas, Gym, Marina A</td>
+                        <td class="price">$9,800,000</td>
+                    </tr>
+                    <tr>
+                        <td data-es="Contingencia (10%)" data-en="Contingency (10%)">Contingencia (10%)</td>
+                        <td data-es="Margen de imprevistos logísticos" data-en="Logistical unforeseen margin">Margen de imprevistos logísticos</td>
+                        <td class="price">$8,640,000</td>
+                    </tr>
+                    <tr>
+                        <td data-es="TOTAL MASTERPLAN" data-en="TOTAL MASTERPLAN">TOTAL MASTERPLAN</td>
+                        <td data-es="Ciudad Operativa Continental Funcional" data-en="Functional Continental Operative City">Ciudad Operativa Continental Funcional</td>
+                        <td class="price">$95,040,000</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2026 VILLA OLÍMPICA STAFF | LA PORCADA BY TAKYMA INVESTMENT PIONEER</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const translateBtn = document.getElementById('translateBtn');
+            if (translateBtn) {
+                translateBtn.addEventListener('click', function() {
+                    const currentLang = document.documentElement.lang;
+                    const newLang = currentLang === 'es' ? 'en' : 'es';
+                    document.documentElement.lang = newLang;
+                    this.textContent = newLang === 'es' ? 'EN' : 'ES';
+                    
+                    document.querySelectorAll('[data-es][data-en]').forEach(element => {
+                        element.textContent = element.getAttribute(`data-${newLang}`);
+                    });
+                });
+            }
+
+            document.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                const delta = e.deltaY;
+                const currentScroll = window.scrollY;
+                const sectionHeight = window.innerHeight;
+                let targetScroll = delta > 0 ? 
+                    Math.min(currentScroll + sectionHeight, document.body.scrollHeight - sectionHeight) : 
+                    Math.max(currentScroll - sectionHeight, 0);
+                window.scrollTo({ top: targetScroll, behavior: 'smooth' });
+            }, { passive: false });
+        });
+    </script>
+</body>
+</html>
